@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="cn.tedu.mybatis.mapper.UserMapper">
+    <!--向表中插入新的用户数据-->
+    <!--Integer insert(User user);-->
+    <insert id="insert" >
+        insert into user (
+            id, name,
+            age, gender
+        ) values (
+            #{id}, #{name},
+            #{age}, #{gender}
+        )
+    </insert>
+
+    <!--根据用户的id来查询用户数据-->
+    <!--User findById(Integer id);-->
+    <select id="findById" resultType="cn.tedu.mybatis.entity.User">
+        select * from user where id = #{id}
+    </select>
+
+</mapper>
